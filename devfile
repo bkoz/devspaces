@@ -1,0 +1,24 @@
+schemaVersion: 2.1.0
+metadata:
+  name: hello-devspaces
+components:
+  - name: python
+    container:
+      image: registry.redhat.io/devspaces/udi-rhel8:3.7
+      volumeMounts:
+        - name: venv
+          path: /home/user/.venv
+      memoryLimit: 2G
+      mountSources: true
+  - name: venv
+    volume:
+      size: 1G
+commands:
+  - id: run
+    exec:
+      label: "Run the application"
+      component: python
+      workingDir: ${PROJECTS_ROOT}/hello-devspaces
+      commandLine: python -m venv .venv && . .venv/bin/activate && python hello-world.py
+      group:
+        kind: run
