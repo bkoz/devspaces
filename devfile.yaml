@@ -33,10 +33,10 @@ components:
       size: 1G
 commands:
   - exec:
-      commandLine: python -m venv .venv && . .venv/bin/activate && python hello-world.py
+      commandLine: python -m venv .venv && . .venv/bin/activate
       component: python
       group:
         kind: run
       label: Run the application
-      workingDir: ${PROJECTS_ROOT}/python-hello-world
+      workingDir: ${PROJECTS_ROOT}/devspaces-gpu
     id: run

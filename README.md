@@ -34,6 +34,18 @@ devspaces-dashboard-65cf874b95-v9f9c   1/1     Running   0          2m
 plugin-registry-746bb64444-j26hw       1/1     Running   0          7m54s
 ```
 
+### Sample Applications
+
+Tensorflow 2.10 (v2.13 reports runtime errors)
+```
+python tf-beginner.py
+```
+
+Pytorch 
+```
+python pytorch-gpu.py
+```
+
 ### Teardown
 
 Delete the DevSpaces cluster instance and the `devspaces` namespace.
