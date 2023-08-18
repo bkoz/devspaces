@@ -45,6 +45,13 @@ Pytorch
 ```
 python pytorch-gpu.py
 ```
+```
+tensorflow                   2.10.0    
+tensorflow-estimator         2.10.0    
+tensorflow-io-gcs-filesystem 0.33.0    
+torch                        2.0.1     
+torchvision                  0.15.2  
+```
 
 ### Teardown
 
