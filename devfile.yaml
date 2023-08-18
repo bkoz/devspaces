@@ -1,7 +1,6 @@
 schemaVersion: 2.2.0
 metadata:
   name: devspaces-gpu
-  namespace: che-kube-admin-devspaces-ct3xl2
 attributes:
   controller.devfile.io/devworkspace-config:
     name: devworkspace-config
@@ -10,8 +9,11 @@ attributes:
   controller.devfile.io/storage-type: per-workspace
 projects:
   - name: devspaces-gpu
-    zip:
-      location: http://devfile-registry.devspaces.svc:8080/resources/v2/python-hello-world.zip
+    git:
+      remotes:
+        origin: "https://github.com/bkoz/devspaces.git"
+      checkoutFrom:
+        revision: main
 components:
   - attributes:
       container-overrides:
@@ -33,10 +35,10 @@ components:
       size: 1G
 commands:
   - exec:
-      commandLine: python -m venv .venv && . .venv/bin/activate
+      commandLine: python -m venv .venv && . .venv/bin/activate && pip install -r requirements.txt
       component: python
       group:
         kind: run
-      label: Run the application
+      label: Configure python
       workingDir: ${PROJECTS_ROOT}/devspaces-gpu
     id: run
