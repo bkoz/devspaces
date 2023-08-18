@@ -24,7 +24,7 @@ oc apply -k components/stack
 The DevSpaces stack can take up to 10 minutes to populate its
 registries and become ready.
 
-Look for the following pods to be ready:
+Look for the following pods to be ready in the `devspaces` project:
 ```
 NAME                                   READY   STATUS    RESTARTS   AGE
 che-gateway-55697854bf-twq47           4/4     Running   0          77s
@@ -36,21 +36,18 @@ plugin-registry-746bb64444-j26hw       1/1     Running   0          7m54s
 
 ### Sample Applications
 
-Tensorflow 2.10 (v2.13 reports runtime errors)
 ```
-python tf-beginner.py
+pip install tensorflow==2.10.0 tensorflow-estimator==2.10 tensorflow-io-gcs-filesystem==0.33 torch==2.0.1 torchvision==0.15.2  
+```
+
+Tensorflow 2.10 (versions >v2.10 report runtime errors)
+```
+python src/tf-beginner.py
 ```
 
 Pytorch 
 ```
-python pytorch-gpu.py
-```
-```
-tensorflow                   2.10.0    
-tensorflow-estimator         2.10.0    
-tensorflow-io-gcs-filesystem 0.33.0    
-torch                        2.0.1     
-torchvision                  0.15.2  
+python src/pytorch-gpu.py
 ```
 
 ### Teardown
