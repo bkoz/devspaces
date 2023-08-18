@@ -1,0 +1,42 @@
+schemaVersion: 2.2.0
+metadata:
+  name: devspaces-gpu
+  namespace: che-kube-admin-devspaces-ct3xl2
+attributes:
+  controller.devfile.io/devworkspace-config:
+    name: devworkspace-config
+    namespace: devspaces
+  controller.devfile.io/scc: container-build
+  controller.devfile.io/storage-type: per-workspace
+projects:
+  - name: devspaces-gpu
+    zip:
+      location: http://devfile-registry.devspaces.svc:8080/resources/v2/python-hello-world.zip
+components:
+  - attributes:
+      container-overrides:
+        resources:
+          limits:
+            nvidia.com/gpu: '1'
+      controller.devfile.io/merge-contribution: true
+    container:
+      image: quay.io/bkozdemb/gpu-devspaces
+      memoryLimit: 2G
+      mountSources: true
+      sourceMapping: /projects
+      volumeMounts:
+        - name: venv
+          path: /home/user/.venv
+    name: python
+  - name: venv
+    volume:
+      size: 1G
+commands:
+  - exec:
+      commandLine: python -m venv .venv && . .venv/bin/activate && python hello-world.py
+      component: python
+      group:
+        kind: run
+      label: Run the application
+      workingDir: ${PROJECTS_ROOT}/python-hello-world
+    id: run
