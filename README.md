@@ -1,6 +1,6 @@
 # Openshift DevSpaces
 
-## Install the DevSpaces operator.
+## Install the DevSpaces operator
 
 ```
 oc apply -k components/operators
