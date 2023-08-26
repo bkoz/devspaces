@@ -1,7 +1,0 @@
-# devspaces
-
-devspaces
-
-### Components
-
-* 

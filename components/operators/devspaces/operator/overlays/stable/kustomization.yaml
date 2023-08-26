@@ -7,5 +7,5 @@ resources:
 patches:
   - target:
       kind: Subscription
-      name: elastic-operator
+      name: devspaces
     path: patch-channel.yaml

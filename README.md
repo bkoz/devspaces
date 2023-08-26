@@ -1,22 +1,26 @@
 # Openshift DevSpaces
 
-Install the DevSpaces operator. 
+## Install the DevSpaces operator
+
 ```
 oc apply -k components/operators
 ```
 
 The DevSpace operator should install the DevWorkspace operator so
 there should be (2) operators installed.
+
 ```
 oc get operators
 ```
+
 ```
 NAME                                                              AGE
 devspaces.openshift-operators                                     20d
 devworkspace-operator.openshift-operators                         20d
 ```
 
-Install Openshift DevSpaces (Che) Cluster
+## Install Openshift DevSpaces (Che) Cluster Instance
+
 ```
 oc apply -k components/stack
 ```
@@ -25,6 +29,7 @@ The DevSpaces stack can take up to 10 minutes to populate its
 registries and become ready.
 
 Look for the following pods to be ready in the `devspaces` project:
+
 ```
 NAME                                   READY   STATUS    RESTARTS   AGE
 che-gateway-55697854bf-twq47           4/4     Running   0          77s
@@ -41,11 +46,13 @@ pip install tensorflow==2.10.0 tensorflow-estimator==2.10 tensorflow-io-gcs-file
 ```
 
 Tensorflow 2.10 (versions >v2.10 report runtime errors)
+
 ```
 python src/tf-beginner.py
 ```
 
-Pytorch 
+Pytorch
+
 ```
 python src/pytorch-gpu.py
 ```
@@ -55,7 +62,9 @@ python src/pytorch-gpu.py
 Delete the DevSpaces cluster instance and the `devspaces` namespace.
 
 ```
-oc delete operator devworkspace-operator.openshift-operators devspaces.openshift-operators
+oc delete -k components/operators
 ```
 
-Why do they re-appear if the subscription is deleted?
+### Links
+
+- https://github.com/devfile/developer-images
