@@ -41,8 +41,16 @@ plugin-registry-746bb64444-j26hw       1/1     Running   0          7m54s
 
 ### Sample Applications
 
+Setup python manually or run the devfile task from vscode.
 ```
-pip install tensorflow==2.10.0 tensorflow-estimator==2.10 tensorflow-io-gcs-filesystem==0.33 torch==2.0.1 torchvision==0.15.2  
+python -m venv .venv
+source .venv/bin/activate
+pip install -r src/requirements.txt
+```
+
+Pytorch test.
+```
+python -m torch.utils.collect_env
 ```
 
 Tensorflow 2.10 (versions >v2.10 report runtime errors)
