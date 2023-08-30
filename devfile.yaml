@@ -24,6 +24,7 @@ components:
     container:
       image: quay.io/bkozdemb/gpu-devspaces
       memoryLimit: 2G
+      cpuLimit: 1000m
       mountSources: true
       sourceMapping: /projects
       volumeMounts:
