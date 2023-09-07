@@ -1,5 +1,7 @@
 # Openshift DevSpaces
 
+## A working GPU node is required to load this devfile into DevSpaces
+
 ## Install the DevSpaces operator
 
 ```
