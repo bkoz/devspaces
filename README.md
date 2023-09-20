@@ -67,6 +67,11 @@ Pytorch
 python src/pytorch-gpu.py
 ```
 
+Gradio/HuggingFace (This example takes at least 10 minutes to download model weights). At a minimum, an NIVDIA T4 is recommended.
+```
+python src/gradio-huggingface-code-llama.py
+```
+
 ### Teardown
 
 Delete the DevSpaces cluster instance and the `devspaces` namespace.
