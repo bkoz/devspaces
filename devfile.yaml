@@ -36,7 +36,7 @@ components:
       size: 1G
 commands:
   - exec:
-      commandLine: python -m venv .venv && . .venv/bin/activate && pip install -r src/requirements.txt
+      commandLine: python -m venv .venv && . .venv/bin/activate && pip install pip -U && pip install -r src/requirements.txt
       component: python
       group:
         kind: run
