@@ -57,6 +57,7 @@ Setup python manually or run the devfile task from vscode.
 ```
 python -m venv .venv
 source .venv/bin/activate
+pip install pip -Uq
 pip install -r src/requirements.txt
 ```
 
