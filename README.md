@@ -3,7 +3,7 @@
 ## A working GPU node is required to load this devfile into DevSpaces
 
 ## Directory Tree
-
+```
 ├── components       Operator installation
     ├── operators
     └── stack
@@ -11,7 +11,7 @@
     ├── dev-base     Build the DevSpaces container image.
 ├── devfile.yaml
 └── src              Example python programs
-
+```
 ## Install the DevSpaces operator
 
 ```
