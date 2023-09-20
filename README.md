@@ -9,8 +9,8 @@
     └── stack
 ├── containers
     ├── dev-base     Build the DevSpaces container image.
-├── devfile.yaml
-└── src              Example python programs
+├── devfile.yaml     Defines limits, repos for the workspace.
+└── src              Example python programs to test GPU functionality.
 ```
 ## Install the DevSpaces operator
 
