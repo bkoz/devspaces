@@ -27,7 +27,7 @@ RUN dnf -y --setopt=tsflags=nodocs update && \
 #
 # BK - install python
 #
-RUN yum install -y python38 
+RUN yum install -y python38 wget
 RUN alternatives --set python /usr/bin/python3.8
 
 USER 1001
@@ -140,6 +140,15 @@ RUN yum install -y \
     ${NV_CUDNN_PACKAGE} \
     && yum clean all \
     && rm -rf /var/cache/yum/*
+
+#
+# Install oc
+#
+WORKDIR /opt/app-root/bin
+RUN wget https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/4.13.9/openshift-client-linux.tar.gz && \
+tar zxfO openshift-client-linux.tar.gz oc > ${WORKDIR}/oc && \
+chmod ug+x ${WORKDIR}/oc && \
+cp ${WORKDIR}/oc /usr/local/bin
 
 USER 1001
 
